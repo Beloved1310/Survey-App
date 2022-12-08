@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import Responses from '../../model/responses';
 
-export const getSurveyResponse = async (req: Request, res: Response) => {
+export const getSurveyResponse = async (req: Request, res: Response) : Promise<{}>=> {
   const surveyResponse = await Responses.find(
     {},
     { _id: 1, surveyResponse: 1, user: 1 }
