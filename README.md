@@ -38,7 +38,7 @@ The Project is well documented on Postman. The Publication link is [Survey-App P
 
 # Deployment
 
-The Project live deployment is [Survey-App deployment link](). Use the documentation to know the routes for easy navigation.
+The Project live deployment is [Survey-App deployment link](https://adefisayo-enterscale-test.vercel.app/). Use the documentation to know the routes for easy navigation.
 
  
 # Built-With
