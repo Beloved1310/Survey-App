@@ -12,5 +12,4 @@ export const config: IConfig = {
   JWT: <string>env.JWT_KEY,
   PORT: parseInt(env.PORT!, 10) || 7000,
   MONGODBURI: <string>env.MONGODBURI,
-  // debug: env.debug,
 };

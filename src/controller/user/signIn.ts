@@ -4,7 +4,7 @@ import User from '../../model/user';
 import { signInValidate } from '../../validation/signInValidation';
 import { userInput } from '../../interfaces/user';
 
-export const signIn = async (req: Request, res: Response) => {
+export const signIn = async (req: Request, res: Response) : Promise<{}> => {
   const { value, error } = signInValidate(req.body);
   if (error) return res.status(400).send({ error: error.details[0].message });
   const { email, password }: userInput = value;

@@ -1,6 +1,14 @@
 import mongoose from 'mongoose';
+import winston from 'winston';
+import { logger } from '../utilis/winston';
 import { config } from '../config';
-// const debug = require('debug')('app');
+
+const log = logger();
+log.add(
+  new winston.transports.Console({
+    format: winston.format.simple(),
+  })
+);
 
 const { MONGODBURI } = config;
 
@@ -12,7 +20,7 @@ export const dbConnection = async () => {
     useCreateIndex: true,
   });
   if (mongooseConnect) {
-    console.log('Connected to Database');
+    log.info('Connected to Database');
   } else {
     console.log('Not Connected to Database');
   }

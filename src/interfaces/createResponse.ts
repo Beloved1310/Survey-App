@@ -6,3 +6,10 @@ interface answerStatement {
 export interface createResponseInput {
   responses: [answerStatement];
 }
+
+
+export  interface savedResponse extends createResponseInput{
+  user:any;
+  surveyId:string;
+  surveyResponse: Array<string | number>;
+}

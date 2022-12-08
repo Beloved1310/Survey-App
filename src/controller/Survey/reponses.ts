@@ -2,9 +2,9 @@ import { Request, Response } from 'express';
 import { responseValidate } from '../../validation/responseValidation';
 import Survey from '../../model/survey';
 import Responses from '../../model/responses';
-import { createResponseInput } from '../../interfaces/createResponse';
+import { createResponseInput, savedResponse } from '../../interfaces/createResponse';
 
-export const createResponse = async (req: Request, res: Response) => {
+export const createResponse = async (req: Request, res: Response) : Promise<{}> => {
   const { value, error } = responseValidate(req.body);
   if (error) return res.status(400).send({ error: error.details[0].message });
   const { responses }: createResponseInput = value;
@@ -18,7 +18,7 @@ export const createResponse = async (req: Request, res: Response) => {
       .status(409)
       .send({ error: 'Incomplete response, Complete required fields' });
   }
-  let surveyResponse: any = [];
+  let surveyResponse: (number | string)[] = [];
   for (let value of responses) {
     question[0].questions.map((questionvalue: any) => {
       if (value.no === questionvalue.no) {
@@ -29,7 +29,7 @@ export const createResponse = async (req: Request, res: Response) => {
       }
     });
   }
-  const saveResponse = {
+  const saveResponse : savedResponse= {
     user: req.user,
     responses,
     surveyId: req.params.id,
