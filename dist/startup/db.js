@@ -22,7 +22,7 @@ const dbConnection = async () => {
         log.info('Connected to Database');
     }
     else {
-        console.log('Not Connected to Database');
+        log.info('Not Connected to Database');
     }
 };
 exports.dbConnection = dbConnection;
