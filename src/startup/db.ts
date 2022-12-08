@@ -22,6 +22,6 @@ export const dbConnection = async () => {
   if (mongooseConnect) {
     log.info('Connected to Database');
   } else {
-    console.log('Not Connected to Database');
+    log.info('Not Connected to Database');
   }
 };
