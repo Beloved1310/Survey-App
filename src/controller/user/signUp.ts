@@ -20,7 +20,7 @@ export const signUp = async (req: Request, res: Response) : Promise<{}> => {
   if (user)
     return res
       .status(400)
-      .send({ error: 'User already registered.Proceed to login' });
+      .send({ error: 'User already registered. Proceed to login' });
   const salt = await bcrypt.genSalt(10);
   createdUser.password = await bcrypt.hash(createdUser.password, salt);
   const savedUser = await User.create(createdUser);
